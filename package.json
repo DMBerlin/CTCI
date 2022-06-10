@@ -1,0 +1,18 @@
+{
+  "name": "array-and-strings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "urlify": "node src/array-and-strings/urlify.js",
+    "is-unique": "node src/array-and-strings/is-unique.js",
+    "check-permutations": "node src/array-and-strings/check-permutations.js abc cba",
+    "palindrome-permutation": "node src/array-and-strings/palindrome-permutation.js",
+    "one-away": "node src/array-and-strings/one-away.js",
+    "string-compression": "node src/array-and-strings/string-compression.js"
+  },
+  "rootDir": "src",
+  "keywords": [],
+  "author": "Daniel Marinho",
+  "license": "ISC"
+}
