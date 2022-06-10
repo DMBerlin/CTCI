@@ -70,17 +70,67 @@ class LinkedList {
     }
 
     insertLast (data) {
-        if (!this.head) {
-            this.head = new Node(data, this.head);
-        } else {
-            let node = this.getLast();
+        let node = this.getLast(); 
+        if (node) {
             node.next = new Node(data, node.next);
+        } else {
+            this.head = new Node(data, this.head);
         }
     }
 
-    getAt (data, pos) {}
+    getAt (pos) {
+        if (!this.head) return null;
+        let node = this.head;
+        let index = 0;
+        while (node) {
+            if (index === pos) return node;
+            node = node.next;
+            index++;
+        }
+    }
 
-    removeAt (data, pos) {}
+    removeAt (pos) {
+        if (!this.head) return null;
+        
+        if (pos === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        
+        let index = 0;
+        let node = this.head;
+        let prevNode = this.head;
+        while (node) {
+            if (index === pos) {
+                prevNode.next = node.next;
+                return;
+            } else {
+                prevNode = node;
+                node = node.next;
+                index++;
+            }
+        }
+    }
 
-    insertAt (data, pos) {}
+    insertAt (data, pos) {
+        if (!this.head) return null;
+        
+        if (pos === 0) {
+            return this.head;
+        }
+        
+        let index = 0;
+        let node = this.head;
+        let prevNode = this.head;
+        while (node) {
+            if (index === pos) {
+                prevNode.next = new Node(data, node);
+                return;
+            } else {
+                prevNode = node;
+                node = node.next;
+                index++;
+            }
+        }
+    }
 }
