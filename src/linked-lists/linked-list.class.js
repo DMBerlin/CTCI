@@ -6,7 +6,7 @@ class LinkedList {
         this.head = null;
     }
 
-    addNode (data) {
+    add (data) {
         this.head = new Node(data, this.head);
     }
 
@@ -34,16 +34,16 @@ class LinkedList {
         return node;
     }
 
-    clearList () {
+    clear () {
         this.head = null;
     }
 
-    removeFirst () {
+    shift () {
         if (!this.head) return;
         this.head = this.head.next;
     }
 
-    removeLast () {
+    pop () {
         if (!this.head) return;
         let node = this.head;
         while (node) {
@@ -55,7 +55,7 @@ class LinkedList {
         }
     }
 
-    insertLast (data) {
+    push (data) {
         let node = this.getLast(); 
         if (node) {
             node.next = new Node(data, node.next);
@@ -82,7 +82,7 @@ class LinkedList {
             this.head = this.head.next;
             return;
         }
-        
+
         let index = 0;
         let node = this.head;
         let prevNode = this.head;
@@ -117,6 +117,16 @@ class LinkedList {
                 node = node.next;
                 index++;
             }
+        }
+    }
+
+    printAll () {
+        if (!this.head) return;
+
+        let node = this.head;
+        while (node) {
+            console.log(node.data);
+            node = node.next;
         }
     }
 }
