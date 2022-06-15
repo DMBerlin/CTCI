@@ -122,12 +122,15 @@ class LinkedList {
 
     printAll () {
         if (!this.head) return;
-
         let node = this.head;
         while (node) {
             console.log(node.data);
             node = node.next;
         }
+    }
+
+    buildFrom (values) {
+        values.forEach(value => this.add(value));
     }
 }
 
