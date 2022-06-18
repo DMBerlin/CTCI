@@ -28,7 +28,7 @@ class LinkedList {
 
     getLast () {
         let node = this.head;
-        while (node) {
+        while (node.next && node.next.next) {
             node = node.next;
         }
         return node;
