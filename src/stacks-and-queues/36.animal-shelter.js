@@ -83,7 +83,7 @@ const testQueue = () => {
     console.log('dequeueDog: ', shelter.get());
 }
 
-// testQueue();
+testQueue();
 
 class Node {
     constructor (data, next = null) {
