@@ -36,19 +36,19 @@ class LinkedList {
         });
     }
 
-    contains (ref) {
+    cycled () {
         let node = this.head;
-        let counter = 0;
+        let hashNode = new Map();
         while (node) {
-            if (node === ref) {
-                counter++;
-                if (counter > 1) {
-                    return counter;
-                }
+            let ref = hashNode.get(node);
+            if (ref && ref === node) {
+                return true;
+            } else {
+                hashNode.set(node, node);
             }
             node = node.next;
         }
-        return counter;
+        return false;;
     }
 }
 
@@ -69,15 +69,4 @@ linkedList.build([
     node5,
 ]);
 
-const loopable = (list) => {
-    let node = list.head;
-    while (node) {        
-        if (list.contains(node) > 1) {
-            return node;
-        }
-        node = node.next;
-    }
-    return false;
-}
-
-console.log(loopable(linkedList));
+console.log(linkedList.cycled());
