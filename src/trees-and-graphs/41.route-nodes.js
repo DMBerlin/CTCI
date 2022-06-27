@@ -32,8 +32,8 @@ class Graph {
                 if (!visited.has(destination)) {
                     visited.add(destination);
                     queue.push(destination);
-                    console.log('BFS: ' + destination);
                 }
+                console.log('BFS: ' + destination);
             }
         }
     }
@@ -48,9 +48,9 @@ class Graph {
                 return console.log('DFS: ' + start + ' has a route to ' + target);
             }
             if (!visited.has(destination)) {
-                console.log('DFS: ' + destination);
                 this.dfs(destination, target, visited);
             }
+            console.log('DFS: ' + destination);
         }
     }
 }
