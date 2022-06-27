@@ -18,8 +18,7 @@ class Graph {
         this.data.get(destination).push(origin);
     }
 
-    bfs (start, target) {
-        const visited = new Set();
+    bfs (start, target, visited = new Set()) {
         const queue = [start];
 
         while (queue.length > 0) {
