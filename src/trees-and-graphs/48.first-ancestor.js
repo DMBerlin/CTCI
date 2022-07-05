@@ -121,6 +121,30 @@ function lca (root, p, q) {
     return lcaNode;
 }
 
-console.log(lca(tree.root, 6, 2));
+function lca2 (root, p, q) {
+    let result = null;
 
-// Time Complexy: O(n^2)
+    const dfs = (node) => {
+        if (node === null) return false;
+        let left = dfs(node.left);
+        let right = dfs(node.right);
+
+        let cur = node.data === p || node.data === q;
+
+        if (left + right + cur >= 2) result = node;
+
+        return left || right || cur;
+    }
+
+    dfs(root);
+    return result;
+}
+let start = performance.now();
+console.log(lca(tree.root, 6, 2));
+let end = performance.now();
+console.log(end - start);
+start = performance.now();
+console.log(lca2(tree.root, 6, 2));
+end = performance.now();
+console.log(end - start);
+// Time Complexy: O(n)
