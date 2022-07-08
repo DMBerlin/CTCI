@@ -82,6 +82,9 @@ class Tree {
                     let leaf = this.__getLeaf(node);
                     leaf.right = ref;
                     return;
+                } else if (!node.left && !node.right) {
+                    node = node.right;
+                    return;
                 }
             }
             if (node.left) queue.push(node.left);
